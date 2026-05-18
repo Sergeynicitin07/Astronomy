@@ -12,13 +12,13 @@ int main(int argc, char *argv[]) {
     data s;
     // Широта Петербурга
     // данные в градусах
-    s.phi = 59.95;
+    s.phi = 68.9670;
     // Западная звезда - Капелла
-    s.declination_w = 45.97;
+    s.declination_w = 38.7836;
     // Восточная звезда - Вега
-    s.declination_e = 38.78;
-    s.right_ascension_e = 279.23;
-    s.right_ascension_w = 79.17;
+    s.declination_e = 45.2803;
+    s.right_ascension_e = 310.3579;
+    s.right_ascension_w = 279.2347;
     // Перевод в радианы
 
     // s0 = 0;
@@ -36,9 +36,12 @@ int main(int argc, char *argv[]) {
 
     angles(&s);
     double s0 = get_s0(&s);
+    double a;
+    double b;
+    get_a_b(&s, &a, &b);
 
     double x1 = Sir_Isaac_Newton_method(function, d_function, s0, &s);
-    double x2 = Bisection_method(function, 0.0, d_2pi, &s, 1);
+    double x2 = Bisection_method(function, a, b, &s, 1);
     printf("Result of Newton_method:\n");
     printf("%.15le\n", x1);
     time_write(x1);
