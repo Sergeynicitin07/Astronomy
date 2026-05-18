@@ -9,6 +9,9 @@
 double function (double s0, data *s);
 
 
+void get_a_b(data *s, double *a, double *b);
+
+
 double Bisection_method(double (*function)(double, data*),
                         double a, double b, data *s, int i);
 
