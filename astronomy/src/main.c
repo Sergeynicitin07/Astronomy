@@ -5,6 +5,8 @@
 #include "methods.h"
 
 
+
+
 int main(int argc, char *argv[]) {
 
     data s;
@@ -18,8 +20,6 @@ int main(int argc, char *argv[]) {
     s.right_ascension_e = 279.23;
     s.right_ascension_w = 79.17;
     // Перевод в радианы
-    angles(&s);
-    double s0 = get_s0(&s);
 
     int k = 1;
     // s0 = 0;
@@ -34,6 +34,10 @@ int main(int argc, char *argv[]) {
         s.right_ascension_e = atof(argv[4]);
     if (argc > 5)
         s.right_ascension_w = atof(argv[5]);
+
+    angles(&s);
+    double s0 = get_s0(&s);
+
     if (k == 0) {
 
         angles(&s);
