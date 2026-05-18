@@ -91,6 +91,30 @@ double get_s0(data *s) {
 }
 
 
+void get_a_b(data *s, double *a, double *b) {
+    // середина между звездами
+    double s_approx = normalize_angle((s->right_ascension_e + s->right_ascension_w) / 2.0);
+
+
+    // создаем узкое и безопасное окно в +-0.5 радиана (около 2 часов)
+    *a = s_approx - 0.1;
+    *b = s_approx + 0.1;
+
+    // проверяем условие Больцано-Коши
+    if (function(*a, s) * function(*b, s) >= 0.0) {
+        *a = s_approx - 0.5;
+        *b = s_approx + 0.5;
+
+        if (function(*a, s) * function(*b, s) >= 0.0) {
+            *a = 0;
+            *b = 0;
+        }
+    }
+
+
+}
+
+
 double Sir_Isaac_Newton_method (double (*function)(double, data*),
                                 double (*d_function)(double, data*),
                                 double s0, data *s) {
