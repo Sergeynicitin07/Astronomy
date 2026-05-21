@@ -12,13 +12,13 @@ int main(int argc, char *argv[]) {
     data s;
     // Широта Петербурга
     // данные в градусах
-    s.phi = 68.9670;
+    s.phi = 59.95;
     // Западная звезда - Капелла
-    s.declination_w = 38.7836;
+    s.declination_w = 45.97;
     // Восточная звезда - Вега
-    s.declination_e = 45.2803;
-    s.right_ascension_e = 310.3579;
-    s.right_ascension_w = 279.2347;
+    s.declination_e = 38.78;
+    s.right_ascension_e = 279.23;
+    s.right_ascension_w = 79.17;
     // Перевод в радианы
 
     // s0 = 0;
